@@ -1,0 +1,36 @@
+[project]
+name = "digital-fte-agent"
+version = "0.1.0"
+description = "Personal AI Employee — Autonomous Digital FTE Framework"
+requires-python = ">=3.13"
+dependencies = [
+    "google-api-python-client>=2.115.0",
+    "google-auth-oauthlib>=1.2.0",
+    "playwright>=1.42.0",
+    "watchdog>=4.0.0",
+    "python-dotenv>=1.0.0",
+    "httpx>=0.27.0",
+    "tweepy>=4.14.0",
+    "pandas>=2.2.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "fastmcp>=0.4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_classes = ["Test*", "*Test"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
