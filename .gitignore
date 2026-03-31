@@ -1,0 +1,74 @@
+# =============================================================================
+# Digital FTE Agent — .gitignore
+# CRITICAL: Secrets and session data must NEVER be committed
+# =============================================================================
+
+# --- Secrets (NEVER commit) ---
+.env
+*.env
+.env.*
+!.env.example
+!.env.cloud.example
+
+# --- Browser sessions (NEVER sync — contain login cookies) ---
+credentials/
+WhatsApp Session/
+whatsapp_session/
+*.session
+
+# --- Obsidian vault (local data, not for repo) ---
+Obsidian/
+
+# --- Vault state and logs (local only, can be large) ---
+**/State/*.json
+**/Logs/*.json
+**/Logs/*.log
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.venv/
+venv/
+env/
+.uv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Node.js ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+*.swo
+
+# --- IDE ---
+.vscode/settings.json
+.idea/
+*.iml
+
+# --- Playwright ---
+playwright-report/
+test-results/
+
+# --- PM2 ---
+logs/
+pids/
+.pm2/
+
+# --- Bank credentials ---
+*.key
+*.pem
+bank_credentials/

@@ -1,0 +1,54 @@
+# =============================================================================
+# Digital FTE Vault — .gitignore
+# Controls what NEVER gets synced to the remote vault repo.
+# Constitution Article IX: secrets never sync; markdown only.
+# =============================================================================
+
+# Secrets — NEVER commit to any repo
+.env
+.env.*
+*.key
+*.pem
+*.p12
+
+# Credentials and OAuth tokens — stay local
+credentials/
+*.json.backup
+
+# Watcher state files — ephemeral, machine-specific
+State/
+*.state
+
+# WhatsApp session — Local agent only (Article IX constitutional requirement)
+whatsapp_session/
+credentials/whatsapp_session/
+**/whatsapp_session/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pycache
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.swp
+*~
+
+# Obsidian workspace state (machine-specific layout)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Log files — stay local
+Logs/
+*.log
+
+# Dashboard lock (ephemeral)
+.dashboard.lock
+
+# Temp staging files (created by vault_locked degradation handler)
+digital_fte_staging/

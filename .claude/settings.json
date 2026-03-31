@@ -1,0 +1,59 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "${VAULT_PATH}"]
+    },
+    "email": {
+      "command": "node",
+      "args": ["src/mcp_servers/email_mcp/index.js"],
+      "env": {
+        "GMAIL_CLIENT_ID": "${GMAIL_CLIENT_ID}",
+        "GMAIL_CLIENT_SECRET": "${GMAIL_CLIENT_SECRET}",
+        "GMAIL_TOKEN_PATH": "${GMAIL_TOKEN_PATH}",
+        "DRY_RUN": "${DRY_RUN}",
+        "AGENT_MODE": "${AGENT_MODE}"
+      }
+    },
+    "browser": {
+      "command": "node",
+      "args": ["src/mcp_servers/browser_mcp/index.js"],
+      "env": {
+        "VAULT_PATH": "${VAULT_PATH}",
+        "DRY_RUN": "${DRY_RUN}",
+        "AGENT_MODE": "${AGENT_MODE}"
+      }
+    },
+    "calendar": {
+      "command": "node",
+      "args": ["src/mcp_servers/calendar_mcp/index.js"],
+      "env": {
+        "GMAIL_TOKEN_PATH": "${GMAIL_TOKEN_PATH}",
+        "DRY_RUN": "${DRY_RUN}"
+      }
+    },
+    "odoo": {
+      "command": "python3",
+      "args": ["-m", "src.mcp_servers.odoo_mcp.server"],
+      "env": {
+        "ODOO_URL": "${ODOO_URL}",
+        "ODOO_DB": "${ODOO_DB}",
+        "ODOO_USERNAME": "${ODOO_USERNAME}",
+        "ODOO_API_KEY": "${ODOO_API_KEY}",
+        "VAULT_PATH": "${VAULT_PATH}",
+        "DRY_RUN": "${DRY_RUN}",
+        "AGENT_MODE": "${AGENT_MODE}"
+      }
+    }
+  },
+  "hooks": {
+    "stop": {
+      "command": "python3",
+      "args": [".claude/hooks/stop.py"],
+      "env": {
+        "VAULT_PATH": "${VAULT_PATH}",
+        "MAX_ITERATIONS": "${MAX_ITERATIONS}"
+      }
+    }
+  }
+}
