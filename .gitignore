@@ -10,10 +10,14 @@
 !.env.example
 !.env.cloud.example
 
-# --- WhatsApp session (NEVER sync) ---
+# --- Browser sessions (NEVER sync — contain login cookies) ---
+credentials/
 WhatsApp Session/
 whatsapp_session/
 *.session
+
+# --- Obsidian vault (local data, not for repo) ---
+Obsidian/
 
 # --- Vault state and logs (local only, can be large) ---
 **/State/*.json

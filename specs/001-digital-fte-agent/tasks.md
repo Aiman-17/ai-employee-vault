@@ -184,8 +184,8 @@
 - [X] T082 [P] Update `README.md` with: architecture diagram (ASCII from spec), Bronze→Silver→Gold→Platinum tier descriptions, step-by-step setup referencing `quickstart.md`, security disclosure section (DRY_RUN default, HITL safeguards, credential handling via env vars, no secrets in vault), tier declaration (Platinum), demo video link placeholder
 - [X] T083 [P] Security audit pass: verify `.env` absent from git history (`git log --all --full-history -- .env`); verify `State/*.json` excluded from vault sync; verify all MCP tools default to DRY_RUN=true; verify `cloud_constraints.py` blocks payment credentials in cloud env; verify WhatsApp session never synced
 - [X] T084 [P] Run `uv run pytest tests/test_foundation.py` and all acceptance test scripts; capture output; fix any failures before submitting
-- [ ] T085 [P] Run `quickstart.md` step 12 Platinum acceptance gate end-to-end as demo rehearsal — requires PM2 watchers running + real credentials; record 5–10 min demo video: filesystem drop → Gmail action → HITL approval → CEO Briefing → Odoo draft → Cloud-Local gate; record 5–10 minute demo video covering all tier highlights
-- [ ] T086 Tag git release `v1.0.0-platinum`; push to GitHub repository; verify README.md renders correctly with setup instructions and architecture diagram
+- [X] T085 [P] Run `quickstart.md` step 12 Platinum acceptance gate end-to-end as demo rehearsal — requires PM2 watchers running + real credentials; record 5–10 min demo video: filesystem drop → Gmail action → HITL approval → CEO Briefing → Odoo draft → Cloud-Local gate; record 5–10 minute demo video covering all tier highlights
+- [X] T086 Tag git release `v1.0.0-platinum`; push to GitHub repository; verify README.md renders correctly with setup instructions and architecture diagram
 
 ---
 

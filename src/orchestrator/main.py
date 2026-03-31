@@ -63,6 +63,28 @@ def build_orchestrator() -> Orchestrator:
             "Set WHATSAPP_SESSION_PATH in .env to enable WhatsApp monitoring."
         )
 
+    # ── Social: FacebookWatcher (requires FACEBOOK_SESSION_PATH) ────────────
+    if os.getenv("FACEBOOK_SESSION_PATH"):
+        from src.watchers.facebook_watcher import FacebookWatcher
+        orc.register_watcher(FacebookWatcher(check_interval=60))
+        logger.info("FacebookWatcher registered.")
+    else:
+        logger.info(
+            "FacebookWatcher skipped — FACEBOOK_SESSION_PATH not set. "
+            "Run scripts/setup_facebook_session.py to enable Facebook DM monitoring."
+        )
+
+    # ── Social: InstagramWatcher (requires INSTAGRAM_SESSION_PATH) ───────────
+    if os.getenv("INSTAGRAM_SESSION_PATH"):
+        from src.watchers.instagram_watcher import InstagramWatcher
+        orc.register_watcher(InstagramWatcher(check_interval=60))
+        logger.info("InstagramWatcher registered.")
+    else:
+        logger.info(
+            "InstagramWatcher skipped — INSTAGRAM_SESSION_PATH not set. "
+            "Run scripts/setup_instagram_session.py to enable Instagram DM monitoring."
+        )
+
     # ── Silver: FinanceWatcher (requires BANK_CSV_DROP_PATH) ─────────────────
     if os.getenv("BANK_CSV_DROP_PATH"):
         from src.watchers.finance_watcher import FinanceWatcher
